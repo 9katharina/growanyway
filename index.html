@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grow Anyway Gathering</title>
+<meta name="description" content="Come with uncertainty. Leave with possibility. Ich baue das erste Grow Anyway Gathering. Trag dich ein, wenn du dabei wärst.">
+<meta property="og:title" content="Grow Anyway Gathering">
+<meta property="og:description" content="Come with uncertainty. Leave with possibility.">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B0A2E'/%3E%3Cpath d='M16 4l3.6 7.9 8.7 1-6.5 5.9 1.7 8.6L16 30l-7.5 4.4 1.7-8.6-6.5-5.9 8.7-1z' fill='%23E0A63A'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:      #0B0A2E;
+    --bg-deep: #06061A;
+    --ink:     #FBF9F3;
+    --gold:    #E0A63A;
+    --muted:   rgba(251,249,243,0.62);
+    --line:    rgba(251,249,243,0.26);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:hidden}
+  body{
+    color:var(--ink);
+    background:var(--bg);
+    background-image:linear-gradient(180deg,#100E3A 0%,#0B0A2C 45%,#06061A 100%);
+    background-attachment:fixed;
+    font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.6;
+    -webkit-font-smoothing:antialiased;min-height:100svh;
+  }
+  ::selection{background:var(--gold);color:var(--bg-deep)}
+  img{max-width:100%;display:block}
+  input,button{font-family:inherit;font-size:inherit;color:inherit}
+
+  .wrap{max-width:600px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;overflow:hidden;
+    min-height:100svh;display:flex;flex-direction:column;justify-content:center;
+    padding:96px 0 80px;text-align:center;
+  }
+
+  /* watercolor stars */
+  .stars{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+  .stars img{
+    position:absolute;width:var(--w);
+    filter:drop-shadow(0 6px 22px rgba(0,0,0,.28));
+    animation:drift 7.5s ease-in-out infinite;
+  }
+  @keyframes drift{0%,100%{translate:0 0}50%{translate:0 -12px}}
+
+  .s1{--w:clamp(132px,19vw,224px);top:3%;right:1%;rotate:9deg;animation-duration:9s}
+  .s2{--w:clamp(118px,16vw,188px);top:7%;left:0%;rotate:-7deg;animation-duration:8s;animation-delay:-2s}
+  .s3{--w:clamp(40px,5.4vw,62px);top:7%;left:43%;rotate:14deg;animation-duration:6.5s;animation-delay:-1s}
+  .s4{--w:clamp(52px,7.5vw,82px);top:29%;left:4%;rotate:-12deg;animation-duration:7s;animation-delay:-3s}
+  .s5{--w:clamp(88px,12.5vw,146px);top:32%;right:5%;rotate:17deg;animation-duration:8.5s;animation-delay:-1.5s}
+  .s6{--w:clamp(34px,4.4vw,52px);top:23%;left:30%;rotate:-16deg;animation-duration:6s;animation-delay:-4s}
+
+  @media(max-width:640px){
+    .s1{--w:96px;top:1%;right:-2%}
+    .s2{--w:82px;top:3%;left:-3%}
+    .s3{--w:34px;top:1%;left:46%}
+    .s4{--w:44px;top:20%;left:-2%}
+    .s5{--w:66px;top:22%;right:-3%}
+    .s6{display:none}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .stars img{animation:none}
+    html{scroll-behavior:auto}
+  }
+
+  .wordmark{
+    font-family:'Playfair Display',Georgia,serif;font-weight:700;
+    text-transform:uppercase;line-height:1.06;letter-spacing:.012em;
+    font-size:clamp(38px,10.5vw,82px);
+  }
+  .wordmark span{display:block}
+  .wordmark .g3{letter-spacing:.03em}
+
+  .intro{
+    margin:30px auto 0;max-width:44ch;color:var(--muted);
+    font-size:clamp(15px,1.9vw,17px);
+  }
+  .tagline{
+    margin:26px auto 0;font-family:'Playfair Display',Georgia,serif;font-style:italic;
+    font-weight:500;font-size:clamp(20px,3.4vw,30px);line-height:1.3;letter-spacing:.005em;
+  }
+
+  /* ---------- FORM ---------- */
+  form{margin:40px auto 0;max-width:420px;display:flex;flex-direction:column;gap:13px;text-align:left}
+  form label{
+    display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:7px;
+  }
+  form input{
+    width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;
+    padding:15px 16px;font-size:16px;transition:border-color .2s ease,background .2s ease;
+  }
+  form input::placeholder{color:rgba(251,249,243,.42)}
+  form input:focus{outline:none;border-color:var(--gold);background:rgba(224,166,58,.09)}
+
+  form button{
+    margin-top:6px;background:var(--gold);color:#1A1850;border:none;border-radius:100px;
+    padding:17px 28px;font-weight:600;font-size:15px;cursor:pointer;
+    transition:transform .25s ease,box-shadow .25s ease;
+  }
+  form button:hover{transform:translateY(-2px);box-shadow:0 16px 40px -12px rgba(224,166,58,.55)}
+  form button:disabled{opacity:.55;cursor:default;transform:none;box-shadow:none}
+
+  .filter-note{
+    margin:22px auto 0;max-width:42ch;font-size:13px;color:var(--muted);
+  }
+  .filter-note b{color:var(--ink);font-weight:500}
+
+  .success{
+    margin:40px auto 0;max-width:420px;border:1px solid var(--gold);border-radius:16px;
+    padding:32px 26px;display:none;
+  }
+  .success.show{display:block}
+  .success h2{font-family:'Playfair Display',serif;font-weight:600;font-size:22px;margin-bottom:8px}
+  .success p{color:var(--muted);font-size:14px}
+  .error{display:none;color:#ffb38f;font-size:13px;margin-top:12px;text-align:center}
+  .error.show{display:block}
+
+  footer{padding:38px 0;text-align:center;position:relative;z-index:2}
+  footer p{font-size:12px;color:var(--muted);letter-spacing:.04em}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="stars" aria-hidden="true">
+    <img class="s1" src="assets/stars/stern1.png" alt="" draggable="false">
+    <img class="s2" src="assets/stars/stern3.png" alt="" draggable="false">
+    <img class="s3" src="assets/stars/stern5.png" alt="" draggable="false">
+    <img class="s4" src="assets/stars/stern2.png" alt="" draggable="false">
+    <img class="s5" src="assets/stars/stern4.png" alt="" draggable="false">
+    <img class="s6" src="assets/stars/stern2.png" alt="" draggable="false">
+  </div>
+
+  <div class="wrap">
+    <h1 class="wordmark">
+      <span>Grow</span><span>Anyway</span><span class="g3">Gathering</span>
+    </h1>
+
+    <p class="intro">
+      Ich baue ein Gathering für Menschen, die noch nicht wissen, wohin sie wollen,
+      aber wissen, dass sie nicht stehen bleiben wollen. Echte Begegnungen statt Networking.
+      Menschen, die dich ins Handeln bringen.
+    </p>
+
+    <p class="tagline">Come with uncertainty.<br>Leave with possibility.</p>
+
+    <form name="grow-anyway-waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="wl-form">
+      <input type="hidden" name="form-name" value="grow-anyway-waitlist">
+      <p hidden><label>Bitte leer lassen<input name="bot-field"></label></p>
+
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" autocomplete="name" required>
+      </div>
+      <div>
+        <label for="email">E-Mail</label>
+        <input type="email" id="email" name="email" autocomplete="email" required>
+      </div>
+      <div>
+        <label for="ort">An welchem Ort</label>
+        <input type="text" id="ort" name="ort" autocomplete="address-level2" placeholder="Stadt, in der du wärst" required>
+      </div>
+
+      <button type="submit">Eintragen <span aria-hidden="true">&rarr;</span></button>
+      <p class="error" id="wl-error">Hat gerade nicht geklappt. Versuch es bitte noch einmal.</p>
+    </form>
+
+    <p class="filter-note">
+      <b>Trag dich nur ein, wenn du wirklich zu so einem Event kommen würdest.</b>
+      Genau daran messe ich, ob und wo es losgeht.
+    </p>
+
+    <div class="success" id="wl-success">
+      <h2>Du stehst auf der Liste.</h2>
+      <p>Ich melde mich, sobald Stadt und Datum stehen.</p>
+    </div>
+  </div>
+</header>
+
+<footer>
+  <div class="wrap"><p>Grow Anyway &middot; Hier entsteht gerade etwas. &copy; <span id="yr"></span></p></div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  var form = document.getElementById('wl-form');
+  var ok   = document.getElementById('wl-success');
+  var err  = document.getElementById('wl-error');
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var btn = form.querySelector('button[type=submit]');
+    btn.disabled = true;
+    err.classList.remove('show');
+
+    var data = new FormData(form);
+    var body = new URLSearchParams();
+    data.forEach(function(v,k){ body.append(k,v); });
+
+    fetch('/', {
+      method:'POST',
+      headers:{'Content-Type':'application/x-www-form-urlencoded'},
+      body: body.toString()
+    }).then(function(r){
+      if(!r.ok) throw new Error('bad status');
+      form.style.display = 'none';
+      ok.classList.add('show');
+      ok.scrollIntoView({behavior:'smooth', block:'center'});
+    }).catch(function(){
+      btn.disabled = false;
+      err.classList.add('show');
+    });
+  });
+</script>
+
+</body>
+</html>
